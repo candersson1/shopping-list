@@ -1,34 +1,28 @@
 import React, {useState} from 'react';
-import {TextInput, View, Button} from 'react-native';
+import {
+  TextInput,
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+} from 'react-native';
 
 export default function AddNew({navigation}) {
   const [text, setText] = useState('');
 
   return (
-    <View
-      style={{
-        padding: 10,
-        display: 'flex',
-        alignItems: 'center',
-      }}>
+    <View style={styles.container}>
       <TextInput
-        style={{
-          marginTop: 40,
-          marginBottom: 40,
-          height: 40,
-          width: 300,
-          borderBottomWidth: 2,
-        }}
+        style={styles.input}
         placeholder="What do we need?"
         onChangeText={(text) => setText(text)}
         defaultValue={text}
       />
-      <Button
-        style={{backgroundColor: 'red'}}
-        onPress={submitToApi.bind(this, text)}
-        title="Add"
-        color="#841584"
-      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={submitToApi.bind(this, text)}>
+        <Text style={styles.button_text}>Add</Text>
+      </TouchableOpacity>
     </View>
   );
 
@@ -52,3 +46,29 @@ export default function AddNew({navigation}) {
       });
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  input: {
+    marginTop: 40,
+    marginBottom: 40,
+    height: 40,
+    width: 300,
+    borderBottomWidth: 2,
+  },
+  button: {
+    width: '50%',
+    backgroundColor: '#74d358',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 5,
+  },
+  button_text: {
+    color: 'white',
+    fontSize: 24,
+  },
+});

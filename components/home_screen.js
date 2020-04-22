@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   item: {
-    backgroundColor: '#3B33A4',
+    backgroundColor: '#66c94b',
     marginVertical: 3,
     marginHorizontal: 16,
     height: 40,
